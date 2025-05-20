@@ -41,4 +41,4 @@ Let's connect and collaborate!
 
 ### 🔗 **Visit My Portfolio**: [www.anil-bhattarai.com.np](https://www.anil-bhattarai.com.np)  
 
-*(Portfolio built with Flutter for cross-platform compatibility. Deployed using GitHub Pages/Vercel/Netlify)*  
+*(Portfolio built with Flutter for cross-platform compatibility. Deployed using GitHub Pages/.npDomainRegistration/cloudfare)*  
