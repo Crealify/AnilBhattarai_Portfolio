@@ -35,7 +35,7 @@ Welcome to my professional portfolio showcasing my projects, skills, and experie
 ## 📫 Get in Touch  
 Let's connect and collaborate!  
 - **Email**: [bhattaraiani2015@gmail.com](mailto:bhattaraiani2015@gmail.com)  
-- **Phone**: +977-9867294376  
+- **Phone**: 
 
 ---
 
