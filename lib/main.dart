@@ -732,8 +732,8 @@ class ContactSection extends StatelessWidget {
         const SizedBox(height: 8),
         ContactInfoRow(
           icon: Icons.phone,
-          text: '+977-9867294376',
-          url: 'tel:+9779867294376',
+          text: 'WhatsApp',
+          url: 'https://wa.me/9779867294376',
         ),
         const SizedBox(height: 16),
         Text(
