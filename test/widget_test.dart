@@ -1,4 +1,4 @@
-import 'package:AnilBhattarai_Portfolio/main.dart';
+import 'package:anil_bhattarai_portfolio/main.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
