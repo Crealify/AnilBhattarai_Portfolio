@@ -1,9 +1,6 @@
 name: AnilBhattarai_Portfolio
-<<<<<<< HEAD
 description: "Aspiring Flutter Developer | MERN Stack Enthusiast"
-=======
-description: "Aspiring Flutter Developer | MERN Stack Enthusiast "
->>>>>>> 046a11e16ef315e7c5da59b12d8e05206e3505e7
+
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: "none" # Remove this line if you wish to publish to pub.dev
