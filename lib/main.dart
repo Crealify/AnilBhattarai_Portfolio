@@ -1,5 +1,8 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'package:flutter_animate/flutter_animate.dart'; // For additional animations
 
 void main() {
   runApp(const PortfolioApp());
@@ -32,71 +35,122 @@ class PortfolioApp extends StatelessWidget {
   }
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
   @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  bool _isDarkMode = false;
+
+  void _toggleTheme() {
+    setState(() {
+      _isDarkMode = !_isDarkMode;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Anil Bhattarai'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.brightness_4),
-            onPressed: null, // Disabled until theme switching is implemented
-          ),
-        ],
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.all(16),
-        child: ResponsiveLayout(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              // About Me Section
-              const AboutSection(),
-              const SizedBox(height: 32),
+    return Theme(
+      data: _isDarkMode ? ThemeData.dark() : ThemeData.light(),
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Anil Bhattarai'),
+          actions: [
+            IconButton(
+              icon: Icon(_isDarkMode ? Icons.brightness_7 : Icons.brightness_4),
+              onPressed: _toggleTheme,
+            ),
+          ],
+          elevation: 0,
+          backgroundColor: Colors.transparent,
+        ),
+        body: SingleChildScrollView(
+          padding: const EdgeInsets.all(16),
+          child: ResponsiveLayout(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // About Me Section
+                const AboutSection()
+                    .animate()
+                    .fadeIn(duration: 600.ms)
+                    .slideX(),
+                const SizedBox(height: 32),
 
-              // Projects Section
-              const ProjectsSection(),
-              const SizedBox(height: 32),
+                // Projects Section
+                const ProjectsSection()
+                    .animate()
+                    .fadeIn(duration: 700.ms)
+                    .slideX(),
+                const SizedBox(height: 32),
 
-              // Skills Section
-              const SkillsSection(),
-              const SizedBox(height: 32),
+                // Skills Section
+                const SkillsSection()
+                    .animate()
+                    .fadeIn(duration: 800.ms)
+                    .slideX(),
+                const SizedBox(height: 32),
 
-              // Education Section
-              const EducationSection(),
-              const SizedBox(height: 32),
+                // Education Section
+                const EducationSection()
+                    .animate()
+                    .fadeIn(duration: 900.ms)
+                    .slideX(),
+                const SizedBox(height: 32),
 
-              // Work Experience Section
-              const WorkExperienceSection(),
-              const SizedBox(height: 32),
+                // Work Experience Section
+                const WorkExperienceSection()
+                    .animate()
+                    .fadeIn(duration: 1000.ms)
+                    .slideX(),
+                const SizedBox(height: 32),
 
-              // Training & Development Section
-              const TrainingSection(),
-              const SizedBox(height: 32),
+                // Training & Development Section
+                const TrainingSection()
+                    .animate()
+                    .fadeIn(duration: 1100.ms)
+                    .slideX(),
+                const SizedBox(height: 32),
 
-              // Certifications Section
-              const CertificationsSection(),
-              const SizedBox(height: 32),
+                // Certifications Section
+                const CertificationsSection()
+                    .animate()
+                    .fadeIn(duration: 1200.ms)
+                    .slideX(),
+                const SizedBox(height: 32),
 
-              // Interests Section
-              const InterestsSection(),
-              const SizedBox(height: 32),
+                // Interests Section
+                const InterestsSection()
+                    .animate()
+                    .fadeIn(duration: 1300.ms)
+                    .slideX(),
+                const SizedBox(height: 32),
 
-              // Contact Section
-              const ContactSection(),
-              const SizedBox(height: 32),
+                // Contact Section
+                const ContactSection()
+                    .animate()
+                    .fadeIn(duration: 1400.ms)
+                    .slideX(),
+                const SizedBox(height: 32),
 
-              // Footer
-              Center(
-                child: Text(
-                  '© ${DateTime.now().year} Anil Bhattarai',
-                  style: Theme.of(context).textTheme.bodySmall,
+                // Footer
+                Center(
+                  child: Text(
+                    '© ${DateTime.now().year} Anil Bhattarai',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color:
+                          Theme.of(context).brightness == Brightness.light
+                              ? Colors.black
+                              : Theme.of(context).colorScheme.onSurface,
+                    ),
+                  ).animate().fadeIn(duration: 1500.ms),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
@@ -116,7 +170,7 @@ class ResponsiveLayout extends StatelessWidget {
         if (constraints.maxWidth > 600) {
           return Center(
             child: ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: 800),
+              constraints: const BoxConstraints(maxWidth: 900),
               child: child,
             ),
           );
@@ -140,9 +194,7 @@ class AboutSection extends StatelessWidget {
           style: Theme.of(
             context,
           ).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.bold),
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-        ),
+        ).animate().fadeIn(),
         const SizedBox(height: 16),
         MouseRegion(
           onEnter: (_) => _AboutSectionAvatarState.zoomNotifier.value = true,
@@ -171,14 +223,17 @@ class AboutSection extends StatelessWidget {
         LayoutBuilder(
           builder: (context, constraints) {
             final isWide = constraints.maxWidth > 600;
-            return Text(
-              'Aspiring Flutter Developer | MERN Stack Enthusiast | Content Creator',
-              style: Theme.of(
-                context,
-              ).textTheme.titleLarge?.copyWith(fontSize: isWide ? 24 : 18),
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-              textAlign: isWide ? TextAlign.left : TextAlign.center,
+            return AnimatedTextKit(
+              animatedTexts: [
+                TypewriterAnimatedText(
+                  'Aspiring Flutter Developer | MERN Stack Enthusiast | Content Creator',
+                  textStyle: Theme.of(
+                    context,
+                  ).textTheme.titleLarge?.copyWith(fontSize: isWide ? 24 : 18),
+                  speed: const Duration(milliseconds: 100),
+                ),
+              ],
+              totalRepeatCount: 1,
             );
           },
         ),
@@ -240,28 +295,36 @@ class SkillsSection extends StatelessWidget {
           runSpacing: 8,
           children: [
             ...[
-              'Flutter',
-              'Dart',
-              'Firebase',
-              'REST API',
-              'Git',
-              'Provider',
-              'Riverpod',
-              'MERN Stack',
-              'JavaScript',
-              'TypeScript',
-              'Python',
-              'Redux',
-              'TailwindCSS',
-              'Django',
-              'AWS',
-              'Docker',
-              'UI/UX Design',
-              'Figma',
-              'Adobe Creative Suite',
-              'Networking',
-              'Cybersecurity',
-            ].map((skill) => Chip(label: Text(skill))),
+                  'Flutter',
+                  'Dart',
+                  'Firebase',
+                  'REST API',
+                  'Git',
+                  'Provider',
+                  'Riverpod',
+                  'MERN Stack',
+                  'JavaScript',
+                  'TypeScript',
+                  'Python',
+                  'Redux',
+                  'TailwindCSS',
+                  'Django',
+                  'AWS',
+                  'Docker',
+                  'UI/UX Design',
+                  'Figma',
+                  'Adobe Creative Suite',
+                  'Networking',
+                  'Cybersecurity',
+                ]
+                .map(
+                  (skill) => Chip(
+                    label: Text(skill),
+                    backgroundColor:
+                        Theme.of(context).colorScheme.primaryContainer,
+                  ),
+                )
+                .toList(),
           ],
         ),
       ],
@@ -296,7 +359,7 @@ class ProjectsSection extends StatelessWidget {
             'React',
             'Node.js',
           ],
-        ),
+        ).animate().fadeIn(),
         const SizedBox(height: 16),
         const ProjectCard(
           title: 'Automatic Water Level Monitor & Bluetooth RC Car',
@@ -304,7 +367,7 @@ class ProjectsSection extends StatelessWidget {
               'Created an Arduino UNO-based smart water level monitor '
               'and a Bluetooth-controlled RC car using ESP32 for obstacle avoidance.',
           technologies: ['Arduino', 'ESP32', 'IoT'],
-        ),
+        ).animate().fadeIn(delay: 200.ms),
         const SizedBox(height: 16),
         const ProjectCard(
           title: 'PLaZa – Online Food Delivery System',
@@ -312,7 +375,7 @@ class ProjectsSection extends StatelessWidget {
               'Developed a complete food ordering system to manage '
               'item categories, shopping carts customer data, and orders.',
           technologies: ['Flutter', 'Firebase', 'REST API'],
-        ),
+        ).animate().fadeIn(delay: 400.ms),
       ],
     );
   }
@@ -333,7 +396,8 @@ class ProjectCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -430,7 +494,8 @@ class ExperienceCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -470,7 +535,6 @@ class ExperienceCard extends StatelessWidget {
                 ),
               ),
             ),
-            //.toList(),
           ],
         ),
       ),
@@ -530,7 +594,8 @@ class EducationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 2,
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -673,7 +738,6 @@ class InterestsSection extends StatelessWidget {
               ),
             ),
           ],
-          //.toList(),
         ),
       ],
     );
@@ -828,6 +892,7 @@ class SocialButton extends StatelessWidget {
       onPressed: onPressed,
       style: IconButton.styleFrom(
         backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
       ),
     );
   }
@@ -870,6 +935,11 @@ class _ContactFormState extends State<ContactForm> {
       final uri = Uri.parse(mailtoUrl);
       if (await canLaunchUrl(uri)) {
         await launchUrl(uri);
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(content: Text('Message sent successfully!')),
+          );
+        }
       } else {
         if (mounted) {
           ScaffoldMessenger.of(context).showSnackBar(
@@ -889,14 +959,18 @@ class _ContactFormState extends State<ContactForm> {
         children: [
           Text(
             'Send me a message',
-            style: Theme.of(context).textTheme.titleMedium,
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(color: Colors.white),
           ),
           const SizedBox(height: 16),
           TextFormField(
             controller: _nameController,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Name',
-              border: OutlineInputBorder(),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
             ),
             validator:
                 (value) =>
@@ -905,9 +979,11 @@ class _ContactFormState extends State<ContactForm> {
           const SizedBox(height: 16),
           TextFormField(
             controller: _emailController,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Email',
-              border: OutlineInputBorder(),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
             ),
             keyboardType: TextInputType.emailAddress,
             validator:
@@ -917,9 +993,11 @@ class _ContactFormState extends State<ContactForm> {
           const SizedBox(height: 16),
           TextFormField(
             controller: _messageController,
-            decoration: const InputDecoration(
+            decoration: InputDecoration(
               labelText: 'Message',
-              border: OutlineInputBorder(),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
             ),
             maxLines: 4,
             validator:
@@ -931,7 +1009,22 @@ class _ContactFormState extends State<ContactForm> {
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: _sendEmail,
-            child: const Text('Send Message'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Theme.of(context).colorScheme.primary,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
+            ),
+            child: Text(
+              'Send a message',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color:
+                    Theme.of(context).brightness == Brightness.dark
+                        ? Colors.black
+                        : Colors.white,
+              ),
+            ),
           ),
         ],
       ),
