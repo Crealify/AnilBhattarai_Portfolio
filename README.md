@@ -1,5 +1,5 @@
 # 🌟 Anil Bhattarai - Portfolio  
-**Aspiring Full Stack Developer | MERN Stack Enthusiast | Flutter Developer**  
+**Aspiring Full Stack Developer | MERN Stack Enthusiast | Flutter Developer **  
 
 Welcome to my professional portfolio showcasing my projects, skills, and experience in software development and hardware engineering.
 
