@@ -583,13 +583,14 @@ class EducationSection extends StatelessWidget {
         EducationCard(
           degree: 'Bachelor of Engineering in Computer Engineering',
           institution: 'Lumbini Engineering College, Bhalwari, Rupandehi',
-          duration: 'Expected OCT 2025',
+          duration: '2019-2024',
         ),
         SizedBox(height: 16),
         EducationCard(
           degree: '+2 in Science',
           institution: 'Kalika Higher Secondary School, Butwal',
-          duration: 'Graduated June 2019',
+          duration: '2017-2019',
+          //duration: 'Graduated June 2019',
         ),
       ],
     );
