@@ -373,40 +373,52 @@ class ProjectsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
-      children:
-          const [
-            Text(
-              'Projects',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-            ),
-            SizedBox(height: 16),
-            ProjectCard(
-              title: 'ECS Hub – Social Media Platform',
-              description:
-                  'Built a scalable MERN stack social media platform with user authentication, real-time chat, notifications, and profile management.',
-              technologies: [
-                'MERN Stack',
-                'MongoDB',
-                'Express.js',
-                'React',
-                'Node.js',
-              ],
-            ),
-            SizedBox(height: 16),
-            ProjectCard(
-              title: 'Automatic Water Level Monitor & Bluetooth RC Car',
-              description:
-                  'Created an Arduino UNO-based smart water level monitor and a Bluetooth-controlled RC car using ESP32 for obstacle avoidance.',
-              technologies: ['Arduino', 'ESP32', 'IoT'],
-            ),
-            SizedBox(height: 16),
-            ProjectCard(
-              title: 'PLaZa – Online Food Delivery System',
-              description:
-                  'Developed a complete food ordering system to manage item categories, shopping carts customer data, and orders.',
-              technologies: ['Flutter', 'Firebase', 'REST API'],
-            ),
-          ].map((widget) => widget.animate().fadeIn()).toList(),
+      children: [
+        const Text(
+          'Projects',
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
+        ),
+        const SizedBox(height: 16),
+        ...[
+              ProjectCard(
+                title: 'ECS Hub – Social Media Platform',
+                description:
+                    'Built a scalable MERN stack social media platform with user authentication, real-time chat, notifications, and profile management.',
+                technologies: [
+                  'MERN Stack',
+                  'MongoDB',
+                  'Express.js',
+                  'React',
+                  'Node.js',
+                ],
+              ),
+              ProjectCard(
+                title: 'Automatic Water Level Monitor & Bluetooth RC Car',
+                description:
+                    'Created an Arduino UNO-based smart water level monitor and a Bluetooth-controlled RC car using ESP32 for obstacle avoidance.',
+                technologies: ['Arduino', 'ESP32', 'IoT'],
+              ),
+              ProjectCard(
+                title: 'PLaZa – Online Food Delivery System',
+                description:
+                    'Developed a complete food ordering system to manage item categories, shopping carts customer data, and orders.',
+                technologies: ['Mern', 'MongoDB', 'REST API'],
+              ),
+            ]
+            .map(
+              (card) => Padding(
+                padding: const EdgeInsets.only(bottom: 16),
+                child: SizedBox(
+                  width: double.infinity,
+                  child: card.animate().fadeIn(
+                    duration: 400.ms,
+                    curve: Curves.easeIn,
+                  ),
+                ),
+              ),
+            )
+            .toList(),
+      ],
     );
   }
 }
