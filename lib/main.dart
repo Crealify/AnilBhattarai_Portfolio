@@ -315,7 +315,7 @@ class _SkillsWrap extends StatelessWidget {
     'Provider',
     'Riverpod',
     'MERN',
-    'JavaScrits',
+    'JavaScript',
     'Python',
     'Redux',
     'Tailwind',
@@ -333,42 +333,35 @@ class _SkillsWrap extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        // Always use 3 columns, but adjust chip/text size for responsiveness
-        final chipFontSize =
-            constraints.maxWidth > 900
-                ? 18.0
-                : constraints.maxWidth > 600
-                ? 16.0
-                : 14.0;
-        return GridView.builder(
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          itemCount: skills.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 3,
-            crossAxisSpacing: 12,
-            mainAxisSpacing: 12,
-            childAspectRatio: 4,
-          ),
-          itemBuilder: (context, index) {
-            return Align(
-              alignment: Alignment.centerLeft,
-              child: Chip(
-                label: Text(
-                  skills[index],
-                  style: TextStyle(fontSize: chipFontSize),
-                ),
-                backgroundColor: Theme.of(context).colorScheme.primaryContainer,
-                labelStyle: TextStyle(
-                  color: Theme.of(context).colorScheme.onPrimaryContainer,
-                ),
-              ),
-            );
-          },
-        );
-      },
+    final width = MediaQuery.of(context).size.width;
+    final chipFontSize =
+        width > 900
+            ? 18.0
+            : width > 600
+            ? 16.0
+            : 14.0;
+    return Align(
+      alignment: Alignment.centerLeft,
+      child: Wrap(
+        spacing: 12,
+        runSpacing: 12,
+        children:
+            skills
+                .map(
+                  (skill) => Chip(
+                    label: Text(
+                      skill,
+                      style: TextStyle(fontSize: chipFontSize),
+                    ),
+                    backgroundColor:
+                        Theme.of(context).colorScheme.primaryContainer,
+                    labelStyle: TextStyle(
+                      color: Theme.of(context).colorScheme.onPrimaryContainer,
+                    ),
+                  ),
+                )
+                .toList(),
+      ),
     );
   }
 }
