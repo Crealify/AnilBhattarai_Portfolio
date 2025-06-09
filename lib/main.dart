@@ -50,7 +50,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool _isDarkMode = false;
+  bool _isDarkMode = true;
 
   void _toggleTheme() {
     setState(() {
@@ -307,43 +307,68 @@ class SkillsSection extends StatelessWidget {
 class _SkillsWrap extends StatelessWidget {
   const _SkillsWrap();
 
+  static const skills = [
+    'Flutter',
+    'Dart',
+    'Firebase',
+    'REST API',
+    'Provider',
+    'Riverpod',
+    'MERN',
+    'JavaScrits',
+    'Python',
+    'Redux',
+    'Tailwind',
+    'AWS',
+    'Docker',
+    'Django',
+    'UI/UX',
+    'Figma',
+    'Git',
+    'Networking',
+    'Adobe Creative',
+    'Cybersecurity',
+    'Day Management',
+  ];
+
   @override
   Widget build(BuildContext context) {
-    return Wrap(
-      spacing: 8,
-      runSpacing: 8,
-      children: [
-        ...[
-              'Flutter',
-              'Dart',
-              'Firebase',
-              'REST API',
-              'Git',
-              'Provider',
-              'Riverpod',
-              'MERN Stack',
-              'JavaScript',
-              'TypeScript',
-              'Python',
-              'Redux',
-              'TailwindCSS',
-              'Django',
-              'AWS',
-              'Docker',
-              'UI/UX Design',
-              'Figma',
-              'Adobe Creative Suite',
-              'Networking',
-              'Cybersecurity',
-            ]
-            .map(
-              (skill) => Chip(
-                label: Text(skill),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        // Always use 3 columns, but adjust chip/text size for responsiveness
+        final chipFontSize =
+            constraints.maxWidth > 900
+                ? 18.0
+                : constraints.maxWidth > 600
+                ? 16.0
+                : 14.0;
+        return GridView.builder(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: skills.length,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            crossAxisSpacing: 12,
+            mainAxisSpacing: 12,
+            childAspectRatio: 4,
+          ),
+          itemBuilder: (context, index) {
+            return Align(
+              alignment: Alignment.centerLeft,
+              child: Chip(
+                label: Text(
+                  skills[index],
+                  style: TextStyle(fontSize: chipFontSize),
+                ),
                 backgroundColor: Theme.of(context).colorScheme.primaryContainer,
+                labelStyle: TextStyle(
+                  color: Theme.of(context).colorScheme.onPrimaryContainer,
+                ),
               ),
-            )
-            .toList(),
-      ],
+            );
+          },
+        );
+      },
     );
   }
 }
