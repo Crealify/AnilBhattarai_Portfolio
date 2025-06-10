@@ -381,7 +381,7 @@ class ProjectsSection extends StatelessWidget {
         const SizedBox(height: 16),
         ...[
               ProjectCard(
-                title: 'ECS Hub – Social Media Platform',
+                title: 'ECS Hub - Social Media Platform',
                 description:
                     'Built a scalable MERN stack social media platform with user authentication, real-time chat, notifications, and profile management.',
                 technologies: [
@@ -399,7 +399,7 @@ class ProjectsSection extends StatelessWidget {
                 technologies: ['Arduino', 'ESP32', 'IoT'],
               ),
               ProjectCard(
-                title: 'PLaZa – Online Food Delivery System',
+                title: 'PLaZa - Online Food Delivery System',
                 description:
                     'Developed a complete food ordering system to manage item categories, shopping carts customer data, and orders.',
                 technologies: ['Mern', 'MongoDB', 'REST API'],
@@ -487,7 +487,7 @@ class WorkExperienceSection extends StatelessWidget {
         ExperienceCard(
           title: 'Chip-Level Hardware & Networking Specialist',
           company: 'Siddhababa Computer, Rupandehi',
-          duration: 'Jul 2019 – Dec 2021',
+          duration: 'Jul 2019 - Dec 2021',
           points: [
             'Conducted chip-level diagnostics and repair for various computing devices.',
             'Installed and maintained networking infrastructure for small offices and clients.',
@@ -497,7 +497,7 @@ class WorkExperienceSection extends StatelessWidget {
         ExperienceCard(
           title: 'Graphics Designer & Hardware Technician',
           company: 'Himalayan Computer Institute, Galyang, Syangja',
-          duration: 'Jul 2018 – Jul 2019',
+          duration: 'Jul 2018 - Jul 2019',
           points: [
             'Designed marketing and educational graphics (brochures, banners, etc.)',
             'Handled PC/laptop troubleshooting and hardware and software servicing.',
@@ -665,14 +665,14 @@ class TrainingSection extends StatelessWidget {
         ),
         SizedBox(height: 16),
         BulletPoint(
-          text: 'Security Systems and Artificial Intelligence – Lec Expo, 2024',
+          text: 'Security Systems and Artificial Intelligence - Lec Expo, 2024',
         ),
-        BulletPoint(text: 'Robotics and IoT – Dursikshya, Jan 2024'),
-        BulletPoint(text: 'Front-End Development with React – September 2023'),
-        BulletPoint(text: 'Cybersecurity Bootcamp (7 Days) – June 2022'),
-        BulletPoint(text: 'Hardware & Networking Troubleshooting – 2020'),
+        BulletPoint(text: 'Robotics and IoT - Dursikshya, Jan 2024'),
+        BulletPoint(text: 'Front-End Development with React - September 2023'),
+        BulletPoint(text: 'Cybersecurity Bootcamp (7 Days) - June 2022'),
+        BulletPoint(text: 'Hardware & Networking Troubleshooting - 2020'),
         BulletPoint(
-          text: 'Poster and Brochure Design – Himalayan Computer (2019)',
+          text: 'Poster and Brochure Design - Himalayan Computer (2019)',
         ),
         BulletPoint(text: 'Leadership & Communication Skills'),
       ],
@@ -701,13 +701,13 @@ class CertificationsSection extends StatelessWidget {
         SizedBox(height: 16),
         BulletPoint(
           text:
-              'ICIP (Introduction to Critical Infrastructure Protection) – OPSWAT Academy, Jan 2025',
+              'ICIP (Introduction to Critical Infrastructure Protection) - OPSWAT Academy, Jan 2025',
         ),
-        BulletPoint(text: 'Door Security System with AI – Lec Expo 2024'),
-        BulletPoint(text: 'Robotics & IoT (40 hrs) – Dursikshya, Jan 2024'),
-        BulletPoint(text: 'Front-End Development with React – Sept 2023'),
-        BulletPoint(text: 'Cybersecurity Bootcamp (7days) – June 2022'),
-        BulletPoint(text: '3D Printer Project Exhibition – Lec Expo 2020'),
+        BulletPoint(text: 'Door Security System with AI - Lec Expo 2024'),
+        BulletPoint(text: 'Robotics & IoT (40 hrs) - Dursikshya, Jan 2024'),
+        BulletPoint(text: 'Front-End Development with React - Sept 2023'),
+        BulletPoint(text: 'Cybersecurity Bootcamp (7days) - June 2022'),
+        BulletPoint(text: '3D Printer Project Exhibition - Lec Expo 2020'),
       ],
     );
   }
